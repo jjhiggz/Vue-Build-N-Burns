@@ -1,19 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <p>The Current counter is:{{ counter }}</p>
+    <button @click="counter += 5">Add 5</button>
+    <button @click="counter += 1">Add 1</button>
+    <p>The result is :{{ result }}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      counter: 0,
+    }
+  },
+  computed: {
+    result() {
+      return Math.sqrt(this.counter);
+    },
+  },
+  watch: {
+    counter: function() {
+      var vm = this;
+      setTimeout(function(){
+        vm.counter = 0;
+        console.log('time')
+      }, 5000 )
+    }
+  },
 };
+
 </script>
 
 <style>
