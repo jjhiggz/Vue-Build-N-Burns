@@ -21,9 +21,9 @@ export default {
     },
   },
   watch: {
-    counter: function() {
+    counter:() => {
       var vm = this;
-      setTimeout(function(){
+      setTimeout(() => {
         vm.counter = 0;
         console.log('time')
       }, 5000 )
