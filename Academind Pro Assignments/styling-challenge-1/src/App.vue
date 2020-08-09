@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <StyledHeader
-      title="Title Name Goes Here"
-      description="This is the description or problem statement of the application"
+      title="Styling Assignment 1"
+      description="1: Alternate between highlight and shrink using a setINterval function, attacth a CSS Class to a div. "
     />
   </div>
 </template>
