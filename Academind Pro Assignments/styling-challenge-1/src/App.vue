@@ -11,7 +11,11 @@
     </button>
     <div
       id="effect"
-      :class="{highlight: highlight}"  
+      :class="{highlight: highlight}"
+      :style="{
+        width: width + 'px',
+        height: height + 'px',
+      }"
     >
 
     </div>
@@ -25,6 +29,8 @@ export default {
   data() {
     return {
       highlight: false,
+      height: 100,
+      width: 100, 
     }
   },
   components: {
@@ -35,9 +41,16 @@ export default {
       let vm = this;
       let interval = setInterval( () => {
         vm.highlight = !vm.highlight
-      } ,100)
+        if( window.innerWidth <= this.width ){
+          this.width = 100
+        } 
+
+        this.width += 20
+      } ,1)
       setTimeout(() => {
         clearInterval(interval)
+        this.height = 100
+        this.width = 100
       },3000)
     },
 
